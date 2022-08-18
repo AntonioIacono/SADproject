@@ -9,15 +9,19 @@ public func configure(_ app: Application) throws {
     // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
 
     app.databases.use(.postgres(
-        hostname: Environment.get("DATABASE_HOST") ?? "localhost",
+        hostname: Environment.get("DATABASE_HOST") ?? "Localhost",
         port: Environment.get("DATABASE_PORT").flatMap(Int.init(_:)) ?? PostgresConfiguration.ianaPortNumber,
         username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
         password: Environment.get("DATABASE_PASSWORD") ?? "vapor_password",
         database: Environment.get("DATABASE_NAME") ?? "vapor_database"
     ), as: .psql)
 
-    app.migrations.add(CreateTodo())
-
+    app.migrations.add(CreateDrink())
+    app.migrations.add(CreateBill())
+    app.migrations.add(CreateOrder())
+    app.migrations.add(CreateOrdination())
+    app.migrations.add(CreateDrink())
+    try app.autoMigrate().wait()
     app.views.use(.leaf)
 
     
