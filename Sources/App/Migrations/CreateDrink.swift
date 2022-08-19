@@ -11,15 +11,17 @@ import Fluent
 struct CreateDrink: Migration {
     
     func prepare(on database: Database) -> EventLoopFuture<Void> {
-        return database.schema("drink")
+        return database.schema("drinks")
             .id()
             .field("name", .string, .required)
-            .field("description", .string, .required)
-            .field("description2", .string, .required)
+            .field("description", .double, .required)
+            .field("price", .string, .required)
+            .field("availability", .bool, .required)
+            .field("ingredients", .string, .required)
             .create()
     }
-    
+
     func revert(on database: Database) -> EventLoopFuture<Void> {
-        return database.schema("drink").delete()
+        return database.schema("drinks").delete()
     }
 }

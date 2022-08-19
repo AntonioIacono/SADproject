@@ -11,18 +11,21 @@ import Vapor
 import AppKit
 
 final class Order: Model, Content {
-    static let schema = "order"
+    static let schema = "orders"
     
     @ID(key: .id)
     var id: UUID?
     @Field(key: "state")
     var state: String
+    @Children(for: \.$order)
+    var subOrders : [SubOrder]
 
     
     init() {}
     
-    init(id: UUID? = nil , state: String){
+    init(id: UUID? = nil , state: String, subOrders : [SubOrder]){
         self.id = id
         self.state = state
+        self.subOrders = subOrders
     }
 }

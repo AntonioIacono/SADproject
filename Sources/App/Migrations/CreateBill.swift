@@ -11,7 +11,7 @@ import Fluent
 struct CreateBill: Migration {
     
     func prepare(on database: Database) -> EventLoopFuture<Void> {
-        return database.schema("bill")
+        return database.schema("bills")
             .id()
             .field("table", .int, .required)
             .field("state", .string, .required)
@@ -21,6 +21,6 @@ struct CreateBill: Migration {
     }
     
     func revert(on database: Database) -> EventLoopFuture<Void> {
-        return database.schema("bill").delete()
+        return database.schema("bills").delete()
     }
 }

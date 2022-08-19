@@ -11,7 +11,7 @@ import Vapor
 import AppKit
 
 final class Bill: Model, Content {
-    static let schema = "bill"
+    static let schema = "bills"
     
     @ID(key: .id)
     var id: UUID?

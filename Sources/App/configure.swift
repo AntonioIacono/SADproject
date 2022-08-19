@@ -19,8 +19,9 @@ public func configure(_ app: Application) throws {
     app.migrations.add(CreateDrink())
     app.migrations.add(CreateBill())
     app.migrations.add(CreateOrder())
-    app.migrations.add(CreateOrdination())
-    app.migrations.add(CreateDrink())
+    app.migrations.add(CreateSubOrder())
+    
+//    app.migrations.add(CreateOrdination())
     try app.autoMigrate().wait()
     app.views.use(.leaf)
 

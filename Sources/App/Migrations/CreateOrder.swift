@@ -11,13 +11,13 @@ import Fluent
 struct CreateOrder: Migration {
     
     func prepare(on database: Database) -> EventLoopFuture<Void> {
-        return database.schema("order")
+        return database.schema("orders")
             .id()
             .field("state", .string, .required)
             .create()
     }
     
     func revert(on database: Database) -> EventLoopFuture<Void> {
-        return database.schema("order").delete()
+        return database.schema("orders").delete()
     }
 }
