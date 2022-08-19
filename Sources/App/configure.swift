@@ -20,6 +20,9 @@ public func configure(_ app: Application) throws {
     app.migrations.add(CreateBill())
     app.migrations.add(CreateOrder())
     app.migrations.add(CreateSubOrder())
+    app.migrations.add(CreateRecipe())
+
+    
     
 //    app.migrations.add(CreateOrdination())
     try app.autoMigrate().wait()

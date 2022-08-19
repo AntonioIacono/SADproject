@@ -23,19 +23,20 @@ final class Drink: Model, Content {
     var price: Double
     @Field(key: "availability")
     var availability : Bool
-    @Field(key: "ingredients")
-    var ingredients: String
+    @Siblings(through: SubOrder.self, from: \.$drink, to: \.$order)
+    public var order: [Order]
+    @Siblings(through: Recipe.self, from: \.$drink, to: \.$ingredient)
+    public var ingredient: [Ingredient]
 
     
     
     init() {}
     
-    init(id: UUID? = nil , name: String, description: String, price: Double, availability: Bool, ingridients: String){
+    init(id: UUID? = nil , name: String, description: String, price: Double, availability: Bool){
         self.id = id
         self.name = name
         self.description = description
         self.price = price
         self.availability = availability
-        self.ingredients = ingridients
     }
 }

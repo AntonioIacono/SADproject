@@ -17,15 +17,15 @@ final class Order: Model, Content {
     var id: UUID?
     @Field(key: "state")
     var state: String
-    @Children(for: \.$order)
-    var subOrders : [SubOrder]
-
+    @Parent(key: "bill_id")
+    var bill : Bill
+    @Siblings(through: SubOrder.self, from: \.$order, to: \.$drink)
+    public var drink: [Drink]
     
     init() {}
     
-    init(id: UUID? = nil , state: String, subOrders : [SubOrder]){
+    init(id: UUID? = nil , state: String){
         self.id = id
         self.state = state
-        self.subOrders = subOrders
     }
 }

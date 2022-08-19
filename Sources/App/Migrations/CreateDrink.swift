@@ -17,7 +17,6 @@ struct CreateDrink: Migration {
             .field("description", .double, .required)
             .field("price", .string, .required)
             .field("availability", .bool, .required)
-            .field("ingredients", .string, .required)
             .create()
     }
 

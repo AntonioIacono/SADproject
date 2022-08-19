@@ -14,6 +14,7 @@ struct CreateSubOrder: Migration {
         return database.schema("sub_orders")
             .field("order_id", .uuid, .required, .references("orders","id"))
             .field("drink_id", .uuid, .required, .references("drinks","id"))
+            .unique(on: "order_id","drink_id")
             .field("amount", .int , .required)
             .create()
     }

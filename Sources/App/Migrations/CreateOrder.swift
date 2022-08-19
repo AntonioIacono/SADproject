@@ -14,6 +14,7 @@ struct CreateOrder: Migration {
         return database.schema("orders")
             .id()
             .field("state", .string, .required)
+            .field("bill_id", .uuid, .required, .references("bills","id"))
             .create()
     }
     

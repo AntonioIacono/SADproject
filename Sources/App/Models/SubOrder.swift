@@ -26,8 +26,7 @@ final class SubOrder: Model, Content {
    
     init() {}
     
-    init(order: Order.IDValue , drink: Drink.IDValue ,amount: Int){
-        
+    init(order: Order.IDValue , drink: Drink.IDValue ,amount: Int) {
         self.$order.id = order
         self.$drink.id = drink
         self.amount = amount
