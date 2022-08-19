@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Order.swift
 //  
 //
 //  Created by Antonio Iacono on 18/08/22.
@@ -24,7 +24,7 @@ final class Order: Model, Content {
     
     init() {}
     
-    init(id: UUID? = nil , state: String){
+    init(id: UUID? = nil, state: String){
         self.id = id
         self.state = state
     }

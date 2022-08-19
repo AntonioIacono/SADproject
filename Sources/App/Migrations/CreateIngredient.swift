@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  CreateIngredient.swift
 //  
 //
 //  Created by Antonio Iacono on 19/08/22.
@@ -8,7 +8,7 @@
 import Foundation
 import Fluent
 
-struct CreateIngredients: Migration {
+struct CreateIngredient: Migration {
     
     func prepare(on database: Database) -> EventLoopFuture<Void> {
         return database.schema("ingredients")

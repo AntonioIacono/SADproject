@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Ingredient.swift
 //  
 //
 //  Created by Antonio Iacono on 19/08/22.
@@ -13,6 +13,7 @@ import AppKit
 
 final class Ingredient: Model, Content {
     static let schema = "ingredients"
+	
     @ID(key: .id)
     var id: UUID?
     @Field(key: "name")
@@ -22,10 +23,9 @@ final class Ingredient: Model, Content {
     @Siblings(through: Recipe.self, from: \.$ingredient, to: \.$drink)
     public var drinks: [Drink]
 
-    
     init() {}
     
-    init(id: UUID? = nil , name: String, producer: String){
+    init(id: UUID? = nil, name: String, producer: String){
         self.id = id
         self.name = name
         self.producer = producer

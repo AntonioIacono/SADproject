@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Recipe.swift
 //  
 //
 //  Created by Antonio Iacono on 19/08/22.
@@ -11,9 +11,7 @@ import Vapor
 import AppKit
 
 final class Recipe: Model, Content {
-    
     static let schema = "recipes"
-    
   
     var id: UUID?
     @Parent(key: "ingredient_id")
@@ -23,7 +21,7 @@ final class Recipe: Model, Content {
    
     init() {}
     
-    init(order: Ingredient.IDValue , drink: Drink.IDValue) throws{
+    init(order: Ingredient.IDValue, drink: Drink.IDValue) throws{
         self.$ingredient.id = order
         self.$drink.id = drink
     }

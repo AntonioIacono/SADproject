@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Drink.swift
 //  
 //
 //  Created by Antonio Iacono on 17/08/22.
@@ -27,12 +27,10 @@ final class Drink: Model, Content {
     public var order: [Order]
     @Siblings(through: Recipe.self, from: \.$drink, to: \.$ingredient)
     public var ingredient: [Ingredient]
-
-    
     
     init() {}
     
-    init(id: UUID? = nil , name: String, description: String, price: Double, availability: Bool){
+    init(id: UUID? = nil, name: String, description: String, price: Double, availability: Bool){
         self.id = id
         self.name = name
         self.description = description

@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  CreateSubOrder.swift
 //  
 //
 //  Created by Antonio Iacono on 18/08/22.
@@ -12,9 +12,9 @@ struct CreateSubOrder: Migration {
     
     func prepare(on database: Database) -> EventLoopFuture<Void> {
         return database.schema("sub_orders")
-            .field("order_id", .uuid, .required, .references("orders","id"))
-            .field("drink_id", .uuid, .required, .references("drinks","id"))
-            .unique(on: "order_id","drink_id")
+            .field("order_id", .uuid, .required, .references("orders", "id"))
+            .field("drink_id", .uuid, .required, .references("drinks", "id"))
+            .unique(on: "order_id", "drink_id")
             .field("amount", .int , .required)
             .create()
     }

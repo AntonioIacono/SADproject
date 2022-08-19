@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  CreateOrder.swift
 //  
 //
 //  Created by Antonio Iacono on 18/08/22.
@@ -14,7 +14,7 @@ struct CreateOrder: Migration {
         return database.schema("orders")
             .id()
             .field("state", .string, .required)
-            .field("bill_id", .uuid, .required, .references("bills","id"))
+            .field("bill_id", .uuid, .required, .references("bills", "id"))
             .create()
     }
     

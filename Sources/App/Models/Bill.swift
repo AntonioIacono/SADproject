@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Bill.swift
 //  
 //
 //  Created by Antonio Iacono on 18/08/22.
@@ -26,10 +26,9 @@ final class Bill: Model, Content {
     @Field(key: "total")
     var total: Double
     
-    
     init() {}
     
-    init(id: UUID? = nil , table: Int, state: String, date: Date, total : Double){
+    init(id: UUID? = nil, table: Int, state: String, date: Date, total : Double){
         self.id = id
         self.table = table
 //        self.orders = orders
