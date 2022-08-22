@@ -23,8 +23,8 @@ final class Drink: Model, Content {
     var price: Double
     @Field(key: "availability")
     var availability : Bool
-    @Siblings(through: SubOrder.self, from: \.$drink, to: \.$order)
-    public var order: [Order]
+//    @Siblings(through: SubOrder.self, from: \.$drink, to: \.$order)
+//    public var order: [Order]
     @Siblings(through: Recipe.self, from: \.$drink, to: \.$ingredient)
     public var ingredient: [Ingredient]
     

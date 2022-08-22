@@ -14,8 +14,8 @@ struct CreateDrink: Migration {
         return database.schema("drinks")
             .id()
             .field("name", .string, .required)
-            .field("description", .double, .required)
-            .field("price", .string, .required)
+            .field("description", .string, .required)
+            .field("price", .double, .required)
             .field("availability", .bool, .required)
             .create()
     }

@@ -12,9 +12,9 @@ struct CreateRecipe: Migration {
     
     func prepare(on database: Database) -> EventLoopFuture<Void> {
         return database.schema("recipes")
-            .field("ingredient_id", .uuid, .required, .references("orders", "id"))
-            .field("drink_id", .uuid, .required, .references("drinks", "id"))
-            .unique(on: "ingredient_id", "drink_id")
+            .id()
+            .field("ingredient_id", .uuid, .required, .references("ingredients", "id",onDelete: .cascade))
+            .field("drink_id", .uuid, .required, .references("drinks", "id", onDelete: .cascade))
             .create()
     }
     

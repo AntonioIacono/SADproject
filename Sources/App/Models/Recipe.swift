@@ -13,6 +13,7 @@ import AppKit
 final class Recipe: Model, Content {
     static let schema = "recipes"
   
+    @ID
     var id: UUID?
     @Parent(key: "ingredient_id")
     var ingredient: Ingredient
@@ -21,9 +22,10 @@ final class Recipe: Model, Content {
    
     init() {}
     
-    init(order: Ingredient.IDValue, drink: Drink.IDValue) throws{
-        self.$ingredient.id = order
-        self.$drink.id = drink
+    init(id: UUID? = nil, order: Ingredient, drink: Drink) throws{
+        self.id = id
+        self.$ingredient.id = try ingredient.requireID()
+        self.$drink.id = try drink.requireID()
     }
 }
 

@@ -20,8 +20,8 @@ final class Ingredient: Model, Content {
     var name: String
     @Field(key: "producer")
     var producer: String
-    @Siblings(through: Recipe.self, from: \.$ingredient, to: \.$drink)
-    public var drinks: [Drink]
+//    @Siblings(through: Recipe.self, from: \.$ingredient, to: \.$drink)
+//    var drinks: [Drink]
 
     init() {}
     
