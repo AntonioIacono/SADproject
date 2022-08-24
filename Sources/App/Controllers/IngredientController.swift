@@ -17,7 +17,6 @@ struct IngredientController: RouteCollection {
         ingredients.put(":id",use: updateHandler)
         ingredients.delete(":id", use: deleteHandler)
     }
-    
     //POST
     func createHandler(_ req:Request)throws ->EventLoopFuture<Ingredient> {
         let ingredient = try req.content.decode(Ingredient.self)
@@ -47,12 +46,4 @@ struct IngredientController: RouteCollection {
         Ingredient.find(req.parameters.get("id"), on: req.db).unwrap(or:Abort(.notFound)).flatMap { ingredient in
             ingredient.delete(on: req.db).transform(to: .noContent)}
     }
-    
- 
-    
-    
-    //    func create(req: Request) throws -> EventLoopFuture<HTTPStatus> {
-    //        let ingredient = try req.content.decode(Ingredient.self)
-    //        return ingredient.save(on: req.db).transform(to: .ok)
-    //    }
 }

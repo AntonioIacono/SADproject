@@ -20,12 +20,16 @@ final class Order: Model, Content {
     @Parent(key: "bill_id")
     var bill : Bill
     @Siblings(through: SubOrder.self, from: \.$order, to: \.$drink)
-    public var drink: [Drink]
+    var drink: [Drink]
+    @Field(key: "total")
+    var total: Double
     
     init() {}
     
-    init(id: UUID? = nil, state: String){
+    init(id: UUID? = nil, state: String, total: Double, bill: Bill.IDValue){
         self.id = id
         self.state = state
+        self.total = total
+        self.$bill.id = bill
     }
 }

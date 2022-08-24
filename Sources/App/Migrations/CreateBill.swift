@@ -14,8 +14,6 @@ struct CreateBill: Migration {
         return database.schema("bills")
             .id()
             .field("table", .int, .required)
-//            .field("order_id", .uuid, .required, .references("orders", "id"))
-//            .unique(on: "order_id")
             .field("state", .string, .required)
             .field("date", .date, .required)
             .field("total", .double, .required)

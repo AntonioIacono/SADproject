@@ -16,12 +16,12 @@ public func configure(_ app: Application) throws {
         database: Environment.get("DATABASE_NAME") ?? "vapor_database"
     ), as: .psql)
 
-    app.migrations.add(CreateDrink())
-    app.migrations.add(CreateBill())
-    app.migrations.add(CreateOrder())
-	app.migrations.add(CreateIngredient())
-    app.migrations.add(CreateSubOrder())
+    app.migrations.add(CreateIngredient())
     app.migrations.add(CreateRecipe())
+    app.migrations.add(CreateDrink())
+    app.migrations.add(CreateOrder())
+    app.migrations.add(CreateSubOrder())
+    app.migrations.add(CreateBill())
     
 //    app.migrations.add(CreateOrdination())
     try app.autoMigrate().wait()

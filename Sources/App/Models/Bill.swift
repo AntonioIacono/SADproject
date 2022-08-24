@@ -31,7 +31,6 @@ final class Bill: Model, Content {
     init(id: UUID? = nil, table: Int, state: String, date: Date, total : Double){
         self.id = id
         self.table = table
-//        self.orders = orders
         self.state = state
         self.date = date
         self.total = total

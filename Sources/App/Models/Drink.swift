@@ -28,6 +28,7 @@ final class Drink: Model, Content {
     @Siblings(through: Recipe.self, from: \.$drink, to: \.$ingredient)
     public var ingredient: [Ingredient]
     
+    
     init() {}
     
     init(id: UUID? = nil, name: String, description: String, price: Double, availability: Bool){
