@@ -76,7 +76,7 @@ struct OrderController: RouteCollection {
     }
     
     // GET CONTO DELL'ORDINE
-    func getUserHandler(_ req:Request)->EventLoopFuture<Bill> {
+    func getBillHandler(_ req:Request)->EventLoopFuture<Bill> {
          Order.find(req.parameters.get("id"), on: req.db).unwrap(or:Abort(.notFound)).flatMap { order in  order.$bill.get(on: req.db)}}
 }
 
