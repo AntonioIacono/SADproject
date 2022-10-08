@@ -8,7 +8,6 @@
 import Foundation
 import  Fluent
 import Vapor
-import AppKit
 
 final class Recipe: Model, Content {
     static let schema = "recipes"

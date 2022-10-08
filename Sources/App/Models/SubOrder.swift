@@ -8,7 +8,6 @@
 import Foundation
 import  Fluent
 import Vapor
-import AppKit
 
 final class SubOrder: Model, Content {
     static let schema = "sub_orders"

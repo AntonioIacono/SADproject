@@ -9,7 +9,6 @@ import Foundation
 import Foundation
 import  Fluent
 import Vapor
-import AppKit
 
 final class Ingredient: Model, Content {
     static let schema = "ingredients"

@@ -8,7 +8,6 @@
 import Foundation
 import  Fluent
 import Vapor
-import AppKit
 
 final class Order: Model, Content {
     static let schema = "orders"
