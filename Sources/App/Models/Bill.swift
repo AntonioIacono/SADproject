@@ -8,8 +8,6 @@
 import Foundation
 import  Fluent
 import Vapor
-import AppKit
-
 final class Bill: Model, Content {
     static let schema = "bills"
     
