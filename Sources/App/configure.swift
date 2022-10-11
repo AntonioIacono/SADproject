@@ -30,9 +30,10 @@ public func configure(_ app: Application) throws {
     app.migrations.add(CreateIngredient())
     app.migrations.add(CreateDrink())
     app.migrations.add(CreateRecipe())
+    app.migrations.add(CreateBill())
     app.migrations.add(CreateOrder())
     app.migrations.add(CreateSubOrder())
-    app.migrations.add(CreateBill())
+    
     
 //    app.migrations.add(CreateOrdination())
     if app.environment == .development{
