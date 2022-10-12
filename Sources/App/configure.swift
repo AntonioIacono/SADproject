@@ -12,7 +12,6 @@ public func configure(_ app: Application) throws {
        var postgresConfig = PostgresConfiguration(url: urlString){
         postgresConfig.tlsConfiguration = .makeClientConfiguration()
         postgresConfig.tlsConfiguration?.certificateVerification = .none
-       
 
         app.databases.use(.postgres(configuration: postgresConfig), as: .psql)
 
